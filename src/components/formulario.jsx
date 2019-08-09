@@ -26,7 +26,13 @@ class Formulario extends Component {
                         </div>
                         <div className="form__item">
                             <label>Correo electrónico</label>
-                            <input type="email" />
+                            <input type="email" 
+                                onChange={
+                                    e => this.setState({
+                                        correo: e.target.value
+                                    })
+                                }
+                            />
                         </div>
                         <div className="form__item">
                             <input className="button full" type="submit" value="Enviar"/>

@@ -3,13 +3,27 @@ import React, {Component} from 'react'
 class Formulario extends Component {
     constructor(props){
         super(props)
-
+    //objeto para mi componente dinamico    
         this.state = {
             nombre : "",
             correo : ""
         }
-
+        this.cambiarNombre = this.cambiarNombre.bind(this);
+        this.cambiarCorreo = this.cambiarCorreo.bind(this);
     }
+    // método cambiar nombre
+    cambiarNombre(e) {
+        this.setState({
+            nombre: e.target.value
+        })
+    }
+
+    cambiarCorreo(e){
+        this.setState({
+            correo: e.target.value
+        })
+    }
+
     render(){
         return(
             <div className="ed-grid">
@@ -18,19 +32,17 @@ class Formulario extends Component {
                         <div className="form__item">
                             <label>Nombre completo</label>
                             <input type="text" 
-                                onChange={ e => this.setState({
-                                    nombre : e.target.value
-                                })
-                            }
+                                onChange={ this.cambiarNombre }
                             />
                         </div>
                         <div className="form__item">
                             <label>Correo electrónico</label>
                             <input type="email" 
-                                onChange={
-                                    e => this.setState({
+                                onChange={ 
+                                    this.cambiarCorreo
+                                    /*e => this.setState({
                                         correo: e.target.value
-                                    })
+                                    })*/
                                 }
                             />
                         </div>

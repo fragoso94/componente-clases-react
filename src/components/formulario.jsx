@@ -8,6 +8,7 @@ class Formulario extends Component {
             nombre : "",
             correo : ""
         }
+        //se hace un bind() para poder utilizar el this
         this.cambiarNombre = this.cambiarNombre.bind(this);
         this.cambiarCorreo = this.cambiarCorreo.bind(this);
     }
@@ -27,7 +28,7 @@ class Formulario extends Component {
     render(){
         return(
             <div className="ed-grid">
-                <form >
+                <form id="elementoForm">
                     <div className="ed-grid m-grid-2">
                         <div className="form__item">
                             <label>Nombre completo</label>
@@ -57,6 +58,12 @@ class Formulario extends Component {
                 </div>
             </div>
         )
+    }
+
+    // método que valida que el componente esta completamente renderizado(montado)
+    componentDidMount(){
+        let elemento = document.getElementById('elementoForm');
+        console.log(elemento);
     }
 }
 

@@ -6,11 +6,13 @@ class Formulario extends Component {
     //objeto para mi componente dinamico    
         this.state = {
             nombre : "",
-            correo : ""
+            correo : "",
+            fecha: new Date()
         }
         //se hace un bind() para poder utilizar el this
         this.cambiarNombre = this.cambiarNombre.bind(this);
         this.cambiarCorreo = this.cambiarCorreo.bind(this);
+        this.cambiarFecha = this.cambiarFecha.bind(this);
     }
     // método cambiar nombre
     cambiarNombre(e) {
@@ -25,9 +27,20 @@ class Formulario extends Component {
         })
     }
 
+    cambiarFecha(){
+        //let fecha = new Date();
+        this.setState({
+            fecha: new Date()
+        })
+
+    }
+
     render(){
         return(
             <div className="ed-grid">
+                <h4>Fecha actual: {
+                    Math.ceil(this.state.fecha/1000)
+                }</h4>
                 <form id="elementoForm">
                     <div className="ed-grid m-grid-2">
                         <div className="form__item">
@@ -64,6 +77,15 @@ class Formulario extends Component {
     componentDidMount(){
         let elemento = document.getElementById('elementoForm');
         console.log(elemento);
+        this.intervaloFecha = setInterval( () => {
+            this.cambiarFecha();
+        }, 1000)
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+    }
+    componentWillUnmount() {
+        clearInterval(this.intervaloFecha)
     }
 }
 

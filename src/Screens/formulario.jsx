@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 class Formulario extends Component {
     constructor(props){
         super(props)
+        console.log(props);
     //objeto para mi componente dinamico    
         this.state = {
             nombre : "",
@@ -38,6 +39,7 @@ class Formulario extends Component {
     render(){
         return(
             <div className="ed-grid">
+                <h1>{this.props.name}</h1>
                 <h4>Fecha actual: {
                     Math.ceil(this.state.fecha/1000)
                 }</h4>

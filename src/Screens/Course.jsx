@@ -1,5 +1,4 @@
 import React from 'react';
-import Curso from "../components/Cursos";
 
 const cursos = [
     {
@@ -32,14 +31,21 @@ const cursos = [
     }
 ];
 
-const CourseGrid = () =>{
+const Course = ({ match }) =>
+{
+    const cursoActual = cursos.filter( c => c.id === parseInt(match.params.id) )[0];
+    console.log(cursoActual)
+    const emtyView = <div className="ed-grid m-grid-3"> 404 - El curso no existe </div>;
     return(
-        <div className="ed-grid m-grid-4">
-            {
-                cursos.map( (c) => <Curso key={c.id} id={c.id} titulo={c.titulo} img={c.img} precio={c.precio} profesor={c.profesor} /> )
-            }
-        </div>
+        cursoActual //si curso actua existe imprime los cursos si no la vista vacía.
+            ?
+            <div className="ed-grid m-grid-3">
+                <h1 className="m-cols-3">Nombre del curso: {cursoActual.id}</h1>
+                <img className="m-cols-1" src={cursoActual.img} alt="Imagen" />
+                <p className="m-cols-2">Profesor: {cursoActual.profesor}</p>
+            </div>
+            : emtyView
     );
 };
 
-export default CourseGrid;
+export default Course;

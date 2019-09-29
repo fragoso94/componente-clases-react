@@ -1,16 +1,16 @@
 import React from 'react'
-import Banner from './components/banner'
-import Formulario from './components/formulario'
+import "./styles/styles.scss";
+import Banner from './components/banner';
+import Formulario from './Screens/formulario';
 //import logo from './logo.svg';
 //import './App.css';
-import "./styles/styles.scss"
+import CourseGrid from "./Screens/CourseGrid";
 
 const App = () => 
 (
   <>
     <Banner />
-    <Formulario />
   </>
-)
+);
 
 export default App;

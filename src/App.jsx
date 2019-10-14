@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Formulario from './Screens/formulario';
 import CourseGrid from "./Screens/CourseGrid";
 import Course from './Screens/Course';
+import MainMenu from "./Screens/MainMenu";
 //import logo from './logo.svg';
 //import './App.css';
 
@@ -12,6 +13,7 @@ import Course from './Screens/Course';
 const App = () => 
 (
   <Router>
+      <MainMenu/>
       <Switch>
         <Route path="/" exact component={ Banner }/>
         <Route path="/cursos/:id" exact component={ Course }/>
@@ -22,7 +24,7 @@ const App = () =>
         <Route component={()=> (
             <div className="ed-grid">
                 <h1>Error 404</h1>
-                <span>Página no en contrada</span>
+                <span>Página no encontrada</span>
             </div>
         )}/>
       </Switch>

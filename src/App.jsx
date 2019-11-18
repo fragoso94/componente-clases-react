@@ -6,11 +6,12 @@ import Formulario from './Screens/formulario';
 import CourseGrid from "./Screens/CourseGrid";
 import Course from './Screens/Course';
 import MainMenu from "./Screens/MainMenu";
+import Historial from "./Historial";
 //import logo from './logo.svg';
 //import './App.css';
 
 
-const App = () => 
+const App = () =>
 (
   <Router>
       <MainMenu/>
@@ -21,6 +22,7 @@ const App = () =>
         <Route path="/formulario" exact component={
             ()=> <Formulario name="Página de contacto"/>
         }/>
+        <Route path="/historial/:name" component={ Historial}/>
         <Route component={()=> (
             <div className="ed-grid">
                 <h1>Error 404</h1>

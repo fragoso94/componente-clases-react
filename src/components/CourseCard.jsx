@@ -1,7 +1,6 @@
 import React from 'react';
 import "../styles/styles.scss";
 import {Link} from 'react-router-dom';
-import style from '../styles/style.css';
 
 //función JS ES6
 //const mayorDeEdad = edad => edad >18;

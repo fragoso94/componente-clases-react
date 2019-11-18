@@ -33,11 +33,12 @@ const cursos = [
 
 const Course = ({ match }) =>
 {
+    console.log(match);
     const cursoActual = cursos.filter( c => c.id === parseInt(match.params.id) )[0];
     console.log(cursoActual)
     const emtyView = <div className="ed-grid m-grid-3"> 404 - El curso no existe </div>;
     return(
-        cursoActual //si curso actua existe imprime los cursos si no la vista vacía.
+        cursoActual //si curso actual existe imprime los cursos, si no la vista vacía.
             ?
             <div className="ed-grid m-grid-3">
                 <h1 className="m-cols-3">Nombre del curso: {cursoActual.id}</h1>
